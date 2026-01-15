@@ -1,5 +1,6 @@
 Name: Jigan Oluwanifemi Semilore
 Matric number: 24/13623
+URL: https://github.com/Oluwanifemi-byte/Smart-Student-Result-Manager
 
 
 Software Development Life Cycle (SDLC)
