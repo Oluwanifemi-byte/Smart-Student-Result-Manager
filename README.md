@@ -1,184 +1,176 @@
-Name: Jigan Oluwanifemi Semilore
+````markdown
+# Smart Student Result Manager – SDLC Project
 
-Matric number: 24/13623
+**Name:** Jigan Oluwanifemi Semilore  
+**Matric Number:** 24/13623  
+**Project URL:** https://github.com/Oluwanifemi-byte/Smart-Student-Result-Manager  
+**Project Title:** Smart Student Result Manager  
 
-URL: https://github.com/Oluwanifemi-byte/Smart-Student-Result-Manager
+---
 
+## 1. Planning Phase
 
-Software Development Life Cycle (SDLC)
-Project: Smart Student Result Manager
-1. Planning Phase
-Objective
+### Objective  
+To build a command-line Python application called **Smart Student Result Manager** that helps manage student results.
 
-To build a command-line Python application called Smart Student Result Manager that helps manage student results.
+### Problems Identified
+- Manual result calculation is slow and error-prone  
+- Student records are not well organized  
+- Searching and editing results is difficult  
 
-Problems Identified
+### Goals
+- Store student data digitally  
+- Automatically calculate total, average, grade, and remark  
+- Allow admin to add, view, search, edit, and delete records  
+- Save data using a file named: `students.json`  
 
-Manual result calculation is slow and error-prone
+---
 
-Student records are not well organized
+## 2. Requirement Analysis
 
-Searching and editing results is difficult
-
-Goals
-
-Store student data digitally
-
-Automatically calculate total, average, grade, and remark
-
-Allow admin to add, view, search, edit, and delete records
-
-Save data using a file named: students.json
-
-2. Requirement Analysis
-Functional Requirements
-
+### Functional Requirements  
 The system must be able to:
+- Add student records using `add_student()`  
+- View all records using `view_all()`  
+- Search student using `search()`  
+- Edit student scores using `edit()`  
+- Delete student record using `delete()`  
+- Calculate grade using `get_grade()`  
+- Load data using `load_data()`  
+- Save data using `save_data()`  
 
-Add student records using add_student()
+### Non-Functional Requirements
+- Easy to use (menu-driven)  
+- Fast for small to medium data  
+- Data should persist using `students.json`  
+- Runs on any system with Python installed  
 
-View all records using view_all()
+---
 
-Search student using search()
+## 3. System Design
 
-Edit student scores using edit()
+### Architecture
+- Single-file Python program: `result_manager.py`  
+- Data file: `students.json`  
+- Menu-driven Command Line Interface  
 
-Delete student record using delete()
-
-Calculate grade using get_grade()
-
-Load data using load_data()
-
-Save data using save_data()
-
-Non-Functional Requirements
-
-Easy to use (menu-driven)
-
-Fast for small to medium data
-
-Data should persist using students.json
-
-Runs on any system with Python installed
-
-3. System Design
-Architecture
-
-Single-file Python program: result_manager.py
-
-Data file: students.json
-
-Menu-driven Command Line Interface
-
-Data Structure
+### Data Structure
 
 Each student record is stored as a dictionary:
 
+```python
 student = {
-    "name": name,
-    "matric": matric,
-    "course": course,
-    "scores": scores,
-    "total": total,
-    "average": avg,
-    "grade": grade,
-    "remark": remark
+  "name": name,
+  "matric": matric,
+  "course": course,
+  "scores": scores,
+  "total": total,
+  "average": avg,
+  "grade": grade,
+  "remark": remark
 }
-
+````
 
 All students are stored inside a list:
 
+```python
 data = [student1, student2, student3, ...]
+```
 
-4. Implementation
-Main Functions Used
-Function Name	Purpose
-load_data()	Reads student data from students.json
-save_data(data)	Saves student data into students.json
-get_grade(avg)	Returns grade and remark
-add_student(data)	Adds new student record
-view_all(data)	Displays all records
-search(data)	Finds a student by name or matric
-edit(data)	Updates student scores
-delete(data)	Removes a student
-main()	Controls the menu and flow
-Flow
+---
 
-Program starts at main()
+## 4. Implementation
 
-Loads existing data using load_data()
+### Main Functions Used
 
-Displays menu
+| Function Name       | Purpose                                 |
+| ------------------- | --------------------------------------- |
+| `load_data()`       | Reads student data from `students.json` |
+| `save_data(data)`   | Saves student data into `students.json` |
+| `get_grade(avg)`    | Returns grade and remark                |
+| `add_student(data)` | Adds new student record                 |
+| `view_all(data)`    | Displays all records                    |
+| `search(data)`      | Finds a student by name or matric       |
+| `edit(data)`        | Updates student scores                  |
+| `delete(data)`      | Removes a student                       |
+| `main()`            | Controls the menu and flow              |
 
-User selects option
+### Program Flow
 
-Corresponding function runs
+1. Program starts at `main()`
+2. Loads existing data using `load_data()`
+3. Displays menu
+4. User selects option
+5. Corresponding function runs
+6. Changes saved using `save_data()`
 
-Changes saved using save_data()
+---
 
-5. Testing
-Test Cases
-Feature	Test	Expected Result
-Add Student	Input valid data	Student saved
-View All	No data	"No records found"
-Search	Existing matric	Student displayed
-Search	Wrong matric	"Student not found"
-Edit	Valid matric	Record updated
-Delete	Valid matric	Record removed
-Grade	Avg = 75	Grade A, Remark Excellent
-File Load	No file	Empty list returned
+## 5. Testing
 
-Testing was done manually by running result_manager.py and checking outputs.
+### Test Cases
 
-6. Deployment
-Steps
+| Feature     | Test             | Expected Result           |
+| ----------- | ---------------- | ------------------------- |
+| Add Student | Input valid data | Student saved             |
+| View All    | No data          | "No records found"        |
+| Search      | Existing matric  | Student displayed         |
+| Search      | Wrong matric     | "Student not found"       |
+| Edit        | Valid matric     | Record updated            |
+| Delete      | Valid matric     | Record removed            |
+| Grade       | Avg = 75         | Grade A, Remark Excellent |
+| File Load   | No file          | Empty list returned       |
 
-Save file as result_manager.py
+Testing was done manually by running `result_manager.py` and checking outputs.
 
-Install Python
+---
 
-Run:
+## 6. Deployment
 
+### Steps
+
+1. Save file as `result_manager.py`
+2. Install Python
+3. Run:
+
+```bash
 python result_manager.py
+```
 
+System automatically creates `students.json` when saving first record.
 
-System automatically creates students.json when saving first record.
+---
 
-7. Maintenance
-Possible Future Updates
+## 7. Maintenance
 
-Add login system
+### Possible Future Updates
 
-Add GUI using Tkinter
+* Add login system
+* Add GUI using Tkinter
+* Export to Excel
+* Add subject-wise results
+* Improve search filters
 
-Export to Excel
+### Bug Fixing
 
-Add subject-wise results
+* Fix wrong inputs
+* Improve validation
+* Prevent duplicate matric numbers
 
-Improve search filters
+---
 
-Bug Fixing
-
-Fix wrong inputs
-
-Improve validation
-
-Prevent duplicate matric numbers
-
-Summary
+## 8. Summary
 
 The Smart Student Result Manager followed all SDLC stages:
 
-Planning – Identified problem and goals
+* **Planning** – Identified problem and goals
+* **Requirement Analysis** – Defined system features
+* **Design** – Planned structure and data format
+* **Implementation** – Coded using Python functions
+* **Testing** – Verified each feature
+* **Deployment** – Ran as CLI application
+* **Maintenance** – Planned upgrades and fixes
 
-Requirement Analysis – Defined system features
+```
+```
 
-Design – Planned structure and data format
-
-Implementation – Coded using Python functions
-
-Testing – Verified each feature
-
-Deployment – Ran as CLI application
-
-Maintenance – Planned upgrades and fixes
